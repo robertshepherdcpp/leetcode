@@ -37,7 +37,7 @@ auto find_in_vec(int a, std::vector<int>& y)
 
 class Solution {
 public:
-    int minOperations(vector<int>& nums) {
+    int minOperations(std::vector<int>& nums) {
         // we first have to check if there are a multiple of 2 or 3 of a certain number
         for (const auto& x : nums)
         {
