@@ -1,0 +1,58 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+# Creating nodes
+node1 = ListNode(1)
+node2 = ListNode(2)
+node3 = ListNode(3)
+node4 = ListNode(4)
+
+# Linking nodes to form a list: 1 -> 2 -> 3
+node1.next = node2
+node2.next = node3
+node3.next = node4
+
+
+# Creating nodes
+two_node1 = ListNode(3)
+two_node2 = ListNode(4)
+two_node3 = ListNode(5)
+two_node4 = ListNode(6)
+
+# Linking nodes to form a list: 1 -> 2 -> 3
+two_node1.next = two_node2
+two_node2.next = two_node3
+two_node3.next = two_node4
+
+curr = node1
+two_curr = two_node1
+
+arr = []
+
+while curr and two_curr:
+    if curr.val < two_curr.val:
+        arr.append(curr)
+        curr = curr.next
+    elif curr.val > two_curr.val:
+        arr.append(two_curr)
+        two_curr = two_curr.next
+    else:
+        arr.append(two_curr)
+        arr.append(curr)
+        two_curr = two_curr.next
+        curr = curr.next
+
+# this bit code just adds the remaining parts
+if not curr and two_curr:
+    while two_curr:
+        arr.append(two_curr)
+        two_curr = two_curr.next
+elif curr and not two_curr:
+    while curr:
+        arr.append(curr)
+        curr = curr.next
+
+for i in arr:
+    print(i.val)
