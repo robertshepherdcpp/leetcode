@@ -1,4 +1,10 @@
 class Solution(object):
     def checkOnesSegment(self, s):
-        return ''.join(str(i) for i in sorted([int(i) for i in s])) == s or ''.join(str(i) for i in sorted(s)[::-1]) == s
+        idx = -1
+        if "0" in s:
+            idx = s.index("0")
+        else:
+            return True
+        arr = s[idx:]
+        return ("1" not in arr)
         
